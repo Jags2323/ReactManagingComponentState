@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { produce } from "immer";
-
+import NavBar from "./components/NavBar";
+import Cart from "./components/Cart";
 
 
 const App = () => {
@@ -27,6 +28,8 @@ const App = () => {
     <div onClick={handleClick}>
       {bugs.map(bug => <p key={bug.id}>{bug.title} {bug.fixed ? "fixed" : "New"}</p>)}
       <button>Click Me</button>
+      <NavBar cartItemsCount={cartItems.length} />
+      <Cart cartItems = {cartItems} onClear = {() => setCartItems([])}/>
     </div>
   )
 }
